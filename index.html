@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Go chapter frontend</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://bootstrap-themes.github.io/marketing/assets/css/toolkit-startup.css" />
+
+    <!-- Bootstrap styling for Typeahead -->
+    <link href="bower/sliptree-bootstrap-tokenfield/dist/css/tokenfield-typeahead.css" type="text/css" rel="stylesheet">
+    <!-- Tokenfield CSS -->
+    <link href="bower/sliptree-bootstrap-tokenfield/dist/css/bootstrap-tokenfield.css" type="text/css" rel="stylesheet">
+
+    <link href="style.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <script src="https://use.fontawesome.com/81c2c0c7a7.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="bower/sliptree-bootstrap-tokenfield/dist/bootstrap-tokenfield.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="bower/sliptree-bootstrap-tokenfield/docs-assets/js/scrollspy.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="bower/sliptree-bootstrap-tokenfield/docs-assets/js/affix.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="bower/sliptree-bootstrap-tokenfield/docs-assets/js/typeahead.bundle.min.js" charset="UTF-8"></script>
+
+    <script type="text/javascript" src="application.js" charset="UTF-8"></script>
+</head>
+<body>
+<div class="container" id="container-top">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation"><a href="https://github.com/digitalcrab/gochapter">Repository</a></li>
+                <li role="presentation"><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Go chapter frontend prototype</h3>
+    </div>
+
+    <div class="jumbotron">
+        <h2>Where do you want to go</h2>
+
+
+        <form class="bs-example form-horizontal">
+
+            <div class="form-group">
+                <label for="tokenfield-typeahead" class="col-lg-2 control-label">Cities</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="tokenfield-typeahead" value="Berlin,Amsterdam" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail1" class="col-lg-2 control-label">Max distance daily</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputEmail1" placeholder="Daily max distance to drive">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail2" class="col-lg-2 control-label">Renting budget</label>
+                <div class="col-lg-10">
+                    <input type="number" class="form-control" id="inputEmail2" placeholder="Your rental budget">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <button type="submit" class="btn btn-lg btn-success" id="to-calc-positive">Calculate</button>
+                    <button type="submit" class="btn btn-lg btn-danger" id="to-calc-negative">Check no results</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="positive-results" class="hidden">
+        <div class="row marketing">
+            <h2>Recommended path</h2>
+            <div class="bs-example" data-example-id="thumbnails-with-custom-content">
+
+                <h2>Day 1: <span>650km</span></h2>
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail"><img alt="100%x200"
+                                                    src="https://drscdn.500px.org/photo/203727805/q%3D80_h%3D450/a9e08e0dcd27e5e922ced6618c7ee885"
+                                                    data-holder-rendered="true"
+                                                    style="height: 200px; max-width: 100%; display: block;">
+                            <div class="caption"><h3>Berlin, Germany</h3>
+                                <p>Start of the path</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-arrow">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail"><img alt="100%x200"
+                                                    src="https://drscdn.500px.org/photo/203727805/q%3D80_h%3D450/a9e08e0dcd27e5e922ced6618c7ee885"
+                                                    data-holder-rendered="true"
+                                                    style="height: 200px; max-width: 100%; display: block;">
+                            <div class="caption"><h3>Amsterdam, Netherlands</h3>
+                                <p><b>Distance:</b> 650km</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h2>Day 2: <span>400km</span></h2>
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail"><img alt="100%x200"
+                                                    src="https://drscdn.500px.org/photo/203727805/q%3D80_h%3D450/a9e08e0dcd27e5e922ced6618c7ee885"
+                                                    data-holder-rendered="true"
+                                                    style="height: 200px; max-width: 100%; display: block;">
+                            <div class="caption"><h3>Amsterdam, Netherlands</h3>
+                                <p><b>Distance:</b> 650km</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-arrow">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail"><img alt="100%x200"
+                                                    src="https://drscdn.500px.org/photo/214530447/q%3D80_h%3D450/0c54e4f4389c300241011579da5ddd5a"
+                                                    data-holder-rendered="true"
+                                                    style="height: 200px; max-width: 100%; display: block;">
+                            <div class="caption"><h3>Amsterdam</h3>
+                                <p><b>Distance:</b> 650km</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-arrow">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail"><img alt="100%x200"
+                                                    src="https://drscdn.500px.org/photo/210762049/q%3D80_h%3D600/1de3b54a473aeee1a6d6aae5ab5c029b"
+                                                    data-holder-rendered="true"
+                                                    style="height: 200px; max-width: 100%; display: block;">
+                            <div class="caption"><h3>Amsterdam</h3>
+                                <p><b>Distance:</b> 650km</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <h2>Day 3: <span>600km</span></h2>
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail"><img alt="100%x200"
+                                                src="https://drscdn.500px.org/photo/210762049/q%3D80_h%3D600/1de3b54a473aeee1a6d6aae5ab5c029b"
+                                                data-holder-rendered="true"
+                                                style="height: 200px; max-width: 100%; display: block;">
+                        <div class="caption"><h3>Amsterdam, Netherlands</h3>
+                            <p><b>Distance:</b> 100km</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 col-arrow">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail"><img alt="100%x200"
+                                                src="https://drscdn.500px.org/photo/208252835/q%3D80_h%3D450/36434cbb40ab7930a416b71159515286"
+                                                data-holder-rendered="true"
+                                                style="height: 200px; max-width: 100%; display: block;">
+                        <div class="caption"><h3>Amsterdam</h3>
+                            <p><b>Distance:</b> 20km</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 col-arrow">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail"><img alt="100%x200"
+                                                src="https://drscdn.500px.org/photo/215263463/q%3D80_h%3D450/a9e2e0d0288a4fa6098cfbfd8ca46ab4"
+                                                data-holder-rendered="true"
+                                                style="height: 200px; max-width: 100%; display: block;">
+                        <div class="caption"><h3>Amsterdam</h3>
+                            <p><b>Distance:</b> 280km</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1 col-arrow">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail"><img alt="100%x200"
+                                            src="https://drscdn.500px.org/photo/203727805/q%3D80_h%3D450/a9e08e0dcd27e5e922ced6618c7ee885"
+                                            data-holder-rendered="true"
+                                            style="height: 200px; max-width: 100%; display: block;">
+                    <div class="caption"><h3>Berlin, Germany</h3>
+                        <p><b>Distance:</b> 200km</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Cars to rent</h2>
+
+        <div class="c">
+            <div class="gc ajk aiu ahz">
+                <div class="aiw ahe">
+                    <h6 class="an ayt ahs">Not expensive</h6>
+                    <img class="ahs" src="https://imgct2.aeplcdn.com/img/800x600/car-data/big/maruti-suzuki-swift-default-image.png-version201706021810.png" style="max-width: 300px; height: 200px">
+                    <p class="aiu">Plenty of processing power for any personal projects, big or small.</p>
+                </div>
+
+                <ul class="ek azw azy ahv">
+                    <li class="ajl"><strong>650 km</strong> Max distance within a day</li>
+                    <li class="ajl"><strong>Gasoline</strong> engine</li>
+                    <li class="ajl"><strong>8 eur</strong> per 100km</li>
+                    <li class="ajl"><strong>240 eur</strong> Renting price</li>
+                </ul>
+
+                <button class="dm ap qq btn-block">
+                    <span class="azo">to rent</span>
+                </button>
+            </div>
+
+            <div class="gc ajk aiu ahz">
+                <div class="aiw">
+                    <h6 class="an ayt ahs">Business</h6>
+                    <img class="ahs" src="https://static.pexels.com/photos/112460/pexels-photo-112460.jpeg" style="max-width: 300px;  height: 200px">
+                    <p class="aiu">The perfect sized plan for small businesses to get started.</p>
+                </div>
+
+                <ul class="ek azw azy ahv">
+                    <li class="ajl"><strong>750 km</strong> Max distance within a day</li>
+                    <li class="ajl"><strong>Electric</strong> engine</li>
+                    <li class="ajl"><strong>10 eur</strong> per 100km</li>
+                    <li class="ajl"><strong>340 eur</strong> Renting price</li>
+                </ul>
+
+                <button class="dm ap qq btn-block">
+                    <span class="azo">to rent</span>
+                </button>
+            </div>
+
+            <div class="gc ajk ain ahz">
+                <div class="aiw">
+                    <h6 class="an ayt ahs">Corporate</h6>
+                    <img class="ahs" src="http://drop.ndtv.com/albums/AUTO/ferrari-488gtb/ferrari488gtb640_640x480.jpg" style="max-width: 300px;  height: 200px">
+                    <p class="aiu">An unlimited plan that will scale infinitely to any size project.</p>
+                </div>
+
+                <ul class="ek azw azy ahv">
+                    <li class="ajl"><strong>850 km</strong> Max distance within a day</li>
+                    <li class="ajl"><strong>Electric</strong> engine</li>
+                    <li class="ajl"><strong>12 eur</strong> per 100km</li>
+                    <li class="ajl"><strong>440 eur</strong> Renting price</li>
+                </ul>
+
+                <button class="dm ap qq btn-block">
+                    <span class="azo">to rent</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="negative-results" class="hidden">
+        <div class="alert alert-danger" role="alert"> <strong>Oh snap!</strong> No results are found. </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+    
+
+
+
+
+    <footer class="footer">
+        <p>&copy; 2016 Company, Inc.</p>
+    </footer>
+
+</body>
+</html>
